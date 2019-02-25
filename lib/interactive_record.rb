@@ -33,8 +33,7 @@ class InteractiveRecord
   end
 
   def col_names_for_insert
-    blah = self.class.column_names.delete_if {|col| col == "id"}.join(", ")
-    binding.pry
+    self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
 
  def values_for_insert
@@ -43,6 +42,7 @@ class InteractiveRecord
     values << "'#{send(col_name)}'" unless send(col_name).nil?
     end
     values.join(", ")
+    binding.pry
   end
 
   def save

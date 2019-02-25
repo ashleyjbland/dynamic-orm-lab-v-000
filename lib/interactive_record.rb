@@ -14,10 +14,10 @@ class InteractiveRecord
      sql = "PRAGMA table_info('#{table_name}')"
 
      table_info = DB[:conn].execute(sql)
-    column_names = []
+     column_names = []
 
      table_info.each do |column|
-      column_names << column["name"]
+     column_names << column["name"]
     end
     column_names.compact
   end
@@ -33,7 +33,7 @@ class InteractiveRecord
   end
 
   def col_names_for_insert
-    self.class.column_names.delete_if {|col| col == "id"}.join(", ")
+    blah = self.class.column_names.delete_if {|col| col == "id"}.join(", ")
     binding.pry
   end
 
